@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<header>
+    <div class="container">
+        <a class="logo"href="../landing.html">MuSynth</a>
+        <nav>
+            <ul>
+                <li><a href="#" onclick='start();'>Start</a></li>
+                <li><a href="#" onclick="stop()">Stop</a></li>
+                <li><select id="itype" onchange="setColor()">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="orange">Orange</option>
+                    </select></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+
+</html>

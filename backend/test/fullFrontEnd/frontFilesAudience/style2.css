@@ -1,0 +1,35 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+header {
+    background: #0c73fa;
+    padding: 2em 1em;
+}
+header a {
+    color: white;
+    text-decoration: none;
+}
+header a.logo {
+    font-weight: bold;
+}
+header nav {
+    float: right;
+}
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+}
+header nav ul li a {
+    padding: 1em;
+}
+header nav ul li a:hover {
+    background: #022f6b;
+}
+h1 {
+    margin-top: 1em;
+}
+iframe {
+   margin: auto;
+ } 

@@ -21,7 +21,9 @@ app.use("/", (req, res)=>{
 });
 app.use('/', express.static(__dirname + '/static'));
 
+
 app.listen(PORT, function () {
 	console.log("Server is running on Port: " + PORT);
 	console.log("http://localhost:" + PORT);
 });
+
