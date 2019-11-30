@@ -6,7 +6,7 @@
 	<script src="script2.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io('http://localhost:9000');
+		var socket = io("/");
 		socket.on('news', function (data) {
 			console.log(data);
 		});
@@ -17,18 +17,20 @@
 		var music = [];
 
 		function loadAudio() {
-			a = document.getElementById("a");
 			b = document.getElementById("b");
-			c = document.getElementById("c");
-			d = document.getElementById("d");
 			e = document.getElementById("e");
-
+			a = document.getElementById("a");
+			d = document.getElementById("d");
+			
+			e = document.getElementById("e");
 			r = document.getElementById("r");
 			d = document.getElementById("d");
-			music[0] = a;
-			music[1] = b;
-			music[2] = c;
-			music[3] = a;
+
+			music[0] = b;
+			music[1] = e;
+			music[2] = a;
+			music[3] = d;
+			
 			music[4] = b;
 		}
 
@@ -60,24 +62,33 @@
 </header>
 
 <body>
-	<audio id="a">
-		<source src="http://localhost:9000/audio/poop.mp3" type="audio/mpeg">
+	<audio id="poop">
+		<source src="../audio/poop.mp3" type="audio/mpeg">
+		<!-- <source src="http://localhost:9000/audio/poop.mp3" type="audio/mpeg"> -->
 		Your browser does not support the audio element.
 	</audio>
-	<audio id="b">
-		<source src="http://localhost:9000/audio/scoop.mp3" type="audio/mpeg">
+	<audio id="scoop">
+		<source src="../audio/scoop.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 	</audio>
-	<audio id="c">
-		<source src="http://localhost:9000/audio/whoopity.mp3" type="audio/mpeg">
+	<audio id="whoopity">
+		<source src="../audio/whoopity.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 	</audio>
 	<audio id="d">
-		<source src="http://localhost:9000/audio/r.mp3" type="audio/mpeg">
+		<source src="../audio/d.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<audio id="a">
+		<source src="../audio/a.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 	</audio>
 	<audio id="e">
-		<source src="http://localhost:9000/audio/d.mp3" type="audio/mpeg">
+		<source src="../audio/e.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<audio id="b">
+		<source src="../audio/b.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 	</audio>
 
@@ -91,9 +102,8 @@
 		<source src="http://localhost:9000/audio/d.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 	</audio>
-
 	<div class="container">
-		<iframe width="853" height="480" src="https://www.youtube.com/embed/mZvQ9ipTK_8" frameborder="0"
+		<iframe width="853" height="480" src="https://www.youtube.com/embed/ZWMs9R0ZWio" frameborder="0"
 			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 </body>

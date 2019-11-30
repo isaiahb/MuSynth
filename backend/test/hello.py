@@ -9,12 +9,10 @@ sio.connect('http://isaiah-7m2s.localhost.run')
 # asyncio
 # sio = socketio.AsyncClient()
 
-def emit():
-    sio.emit('python', random.randint(0, 4))
+def emit(data):
+    sio.emit('python', data)
 
 @sio.on('process')
 def on_message(data):
     # print('I received a message!')
-    emit()
-
-emit()
+    emit(random.randint(0, 4))

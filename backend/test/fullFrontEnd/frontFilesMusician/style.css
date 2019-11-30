@@ -6,7 +6,7 @@ div { width: 50%; height: 50%; float: left; /*border:5px; border-style: solid;*/
 #div4 { animation: blink 0.06667s infinite; ;}
 
 :root {
-    --color: rgb(255, 1, 1);
+    --color: rgb(0, 0, 0);
 }
 
 @-webkit-keyframes blink {

@@ -7,7 +7,7 @@ socket.on('event', function(data){});
 socket.on('disconnect', function(){});
 
 function randomF() {
-	return Math.round(Math.random() * 2000) - 1000;
+	return (Math.random() * 2000) - 1000;
 }
 
 function randomFrequencies() {
