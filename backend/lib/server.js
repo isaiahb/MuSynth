@@ -6,8 +6,13 @@ app.use(express.static('./public'));
 
 var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
 
+
+var http = require('http').createServer(app);
+
+var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
+
 var spawn = require('child_process').spawn;
-var py = spawn('python3', ['dsp.py']);
+var py = spawn('python3', [__dirname + '/dsp.py']);
 
 py.stdout.on('data', function (data) {
 	console.log(data);
@@ -24,19 +29,19 @@ function add(data) {
 	}
 }
 
-
 io.on('connection', function (socket) {
 	console.log("new connection")
 
 	//receive processed data from python send to audience clients
 	socket.on("python", function (data) {
-		// console.log("python " + data);
+		console.log("python " + data);
 		io.emit('notes', data);
 
 	});
 
 	//receive data from muscician client, send to python for processing
 	socket.on("floats", function (data) {
+		// console.log(data);
 		add(data);
 		io.emit('process', buffer);
 	});
