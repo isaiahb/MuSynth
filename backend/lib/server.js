@@ -1,15 +1,11 @@
 const express = require("express");
 var app = express();
 var http = require('http').createServer(app);
+var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
+
 app.use(require("morgan")("dev"));
 app.use(express.static('./public'));
 
-var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
-
-
-var http = require('http').createServer(app);
-
-var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
 
 var spawn = require('child_process').spawn;
 var py = spawn('python3', [__dirname + '/dsp.py']);
@@ -47,7 +43,8 @@ io.on('connection', function (socket) {
 	});
 
 	//receive data from muscician client2
-	socket.on("int", function (data) {
+	socket.on("key", function (data) {
+		console.log("key: " + data);
 		io.emit('notes', data);
 	});
 

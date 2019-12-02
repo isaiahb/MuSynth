@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</head>
+<header>
+    <div class="container">
+        <a class="logo"href="../landing.html">MuSynth</a>
+        <nav>
+            <ul>
+                <li><a href="#" onclick='start();'>Start</a></li>
+                <li><a href="#" onclick="stop()">Stop</a></li>
+                <li><select id="itype" onchange="setColor()">
+                        <option value="black">Black</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="orange">Orange</option>
+                    </select></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<audio id="poop">
+	<source src="../audio/poop.mp3" type="audio/mpeg">
+	<!-- <source src="http://localhost:9000/audio/poop.mp3" type="audio/mpeg"> -->
+	Your browser does not support the audio element.
+</audio>
+<audio id="scoop">
+	<source src="../audio/scoop.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<audio id="whoopity">
+	<source src="../audio/whoopity.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<audio id="d">
+	<source src="../audio/d.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<audio id="a">
+	<source src="../audio/a.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<audio id="e">
+	<source src="../audio/e.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+<audio id="b">
+	<source src="../audio/b.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+
+
+<audio id="r">
+	<source src="http://localhost:9000/audio/r.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+</html>
