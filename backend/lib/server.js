@@ -25,6 +25,8 @@ function add(data) {
 	}
 }
 
+var muzes = {};
+
 io.on('connection', function (socket) {
 	console.log("new connection")
 
