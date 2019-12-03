@@ -4,9 +4,10 @@
 	"description": "backend server for musynth",
 	"main": "index.js",
 	"scripts": {
-		"server": "nodemon lib/server.js",
-		"m": "nodemon lib/client-m.js",
-		"a": "nodemon lib/client-a.js"
+		"server": "node backend/lib/server.js",
+		"m": "node backend/lib/client-m.js",
+		"a": "node backend/lib/client-a.js",
+		"start": "npm run server"
 	},
 	"repository": {
 		"type": "git",
