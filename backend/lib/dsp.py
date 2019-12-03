@@ -6,7 +6,7 @@ import socketio
 
 # standard Python
 sio = socketio.Client()
-sio.connect('http://localhost:9000')
+sio.connect('musynth.herokuapp.com')
 
 processId = sys.argv[1]
 print(processId)
