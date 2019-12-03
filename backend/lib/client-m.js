@@ -22,6 +22,7 @@ async function run() {
 	while(true)  {
 		await sleep(1000);
 		socket.emit('floats', randomFrequencies());
+		console.log("sent to socket");
 	}
 }
 run();
