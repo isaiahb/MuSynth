@@ -8,26 +8,16 @@ import socketio
 sio = socketio.Client()
 sio.connect('http://localhost:9000')
 
+processId = sys.argv[1]
+print(processId)
 
 def openBuf(location):
     buf = open(location, 'r')
     return buf
 
 def getData(data):
-    """data = buf.read()
-    data = data.split(",")[:-1]
-    data = np.array(data)"""
-    print("waiting on data")
-    # data = list()
-    # for i in range(213): #read in almost 1 second of data
-    #     data.append(sys.stdin.readline())
-
-    # for i, datum in enumerate(data):
-    #     data[i] = datum.split(",")[:-1]
-    #     for j, item in enumerate(data[i]):
-    #         datagood.append(float(data[i][j]))
+    # print("waiting on data")
     data = np.array(data)
-    print(np.shape(data))
     return data
 
 def calculatePSD(array,sample_f):
@@ -53,31 +43,18 @@ def getStats(array, sample_f, eyefreq):
     
     return divide
 
-# def main():
-#     eyefreqs = [8.0,10.0,12.0,15.0]
-#     output = [0, 0, 0, 0]
-#     while True:
-#         data = getData()
-#         for i, eyefreq in enumerate(eyefreqs):
-#             output[i] = getStats(data, 256, eyefreq)
-#         print("Strongest signal is: {} Hz ".format(eyefreqs[np.argmax(output)]))
-
-# if __name__ == "__main__":
-#     main()
 
 def emit(data):
     sio.emit('python', data)
 
-@sio.on('process')
+
+@sio.on('process'+processId)
 def on_message(data):
-    print('I received a message!')
     eyefreqs = [8.0,10.0,12.0,15.0]
     output = [0, 0, 0, 0]
     data = getData(data)
     for i, eyefreq in enumerate(eyefreqs):
         output[i] = getStats(data, 256, eyefreq)
-	# 
+
     emit(str(np.argmax(output)))
 
-
-print("Wew")
