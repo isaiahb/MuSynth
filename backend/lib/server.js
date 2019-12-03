@@ -5,20 +5,10 @@ var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
 
 app.use(require("morgan")("dev"));
 app.use(express.static(__dirname+'/../public'));
-
-
 var spawn = require('child_process').spawn;
-// var py = spawn('python3', [__dirname + '/dsp.py']);
 
-// py.stdout.on('data', function (data) {
-// 	console.log(data);
-// });
-// py.on("error", (err)=>console.log(err));
-
-// var buffer = [];
-
+//add data to the muze buffer
 function add(data, muze) {
-	// console.log("add buffer: " + muze.buffer.length);
 	if(!muze.last) muze.last = Date.now();
 
 	if (muze.buffer.length >= 256 * 10) {
@@ -26,9 +16,9 @@ function add(data, muze) {
 	} else {
 		muze.buffer = data.concat(muze.buffer);
 	}
-	// console.log("add buffer: " + buffer.length);
 }
 
+//keep track of the clients that are connected with a muze, store a buffer and python proccess for them as well
 var clients = {};
 
 
@@ -75,12 +65,10 @@ io.on('connection', function (socket) {
 
 		}
 
-		// console.log("floats from: " + id);
-		// console.log(muze.buffer);
 		add(data, muze);
 		let dif =  Date.now() - muze.last;
 		let seconds = dif / 1000;
-		console.log(seconds);
+
 		if(seconds >= 1) {
 			io.emit('process'+id, muze.buffer);
 			muze.last = Date.now();
