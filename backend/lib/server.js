@@ -4,7 +4,7 @@ var http = require('http').createServer(app);
 var io = require('socket.io')(http, { 'transports': ['websocket', 'polling'] });
 
 app.use(require("morgan")("dev"));
-app.use(express.static('./public'));
+app.use(express.static('../public'));
 
 
 var spawn = require('child_process').spawn;
